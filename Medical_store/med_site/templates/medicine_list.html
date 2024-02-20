@@ -1,0 +1,30 @@
+
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container mt-lg-5">
+    {% comment %} {% if perms.med_site.add_medicine %} {% endcomment %}
+        <h1>MediStore Medicals</h1>
+        <a href="{% url 'med_create'%}"><button class="btn btn-success">Add Medicine</button></a>
+        <hr>
+    {% comment %} {% endif %} {% endcomment %}
+      
+    <h2>Medication Details</h2>
+    <p>The list of available Medicines:</p>
+    <ul>
+        {% for Medicine in all_med %}
+            <li>
+                <h6>
+                    <a class="{% if Medicine.dosage < 5 %}text-danger{% elif Medicine.dosage >= 6 and Medicine.dosage <= 10 %}text-warning{% elif Medicine.dosage > 10 %}text-success{% endif %}" href="medicine_detail/{{ Medicine.id }}">
+                        {{ Medicine.med_name }} ({{ Medicine.dosage }})
+                    </a>
+                </h6>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <h5>Total Available: {{ num_med }}</h5>
+</div>
+
+{%endblock%}

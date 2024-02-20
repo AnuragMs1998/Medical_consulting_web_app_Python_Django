@@ -1,0 +1,20 @@
+{% extends "base_page.html" %}
+
+{% block content %}
+<div class="container  " style="display: flex; margin-top: 130px; margin-left: 20px;  flex-direction: column;">
+    <h1>LIFE MEDICAL</h1>
+    <h3>Welcome to Life Medicals.</em>!</h3>
+    <h4>A website for order Medicines</em>!</h4>
+    <h4>World class medicines at lowest rates</em>!</h4>
+    
+    <a href="{% url 'medicine_list' %}"><button type="button" class="btn btn-warning mt-2 display-inline" style="width: 120px;">order now</button></a></n>
+    
+    
+    
+</div>
+<div class="clock">
+    <!-- <h5>Clock</h5> -->
+    <!-- {{time_today}} -->
+</div>
+
+{% endblock %}
